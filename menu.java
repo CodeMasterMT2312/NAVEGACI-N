@@ -11,13 +11,12 @@ public class menu extends JFrame {
     private JRadioButton salirRadioButton;
     private JPanel JPanel_menu;
     private String Username;
-    private Cuenta cuenta;
+    private static Cuenta cuenta = new Cuenta();
 
     public menu(String username1) {
         setTitle("Menu");
         this.Username = username1;
         setContentPane(JPanel_menu);
-        cuenta = new Cuenta(); // Crear una instancia única de Cuenta
 
         verSaldoRadioButton.addActionListener(new ActionListener() {
             @Override
@@ -33,7 +32,7 @@ public class menu extends JFrame {
         depositoRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Deposito dep = new Deposito(cuenta, new Ver_Saldo(cuenta)); // Pasar la instancia existente de Ver_Saldo
+                Deposito dep = new Deposito(cuenta); // Pasar la instancia existente de Ver_Saldo
                 dep.iniciar();
                 dispose();
             }

@@ -13,8 +13,8 @@ public class Retiro extends JFrame {
 
     public Retiro(Cuenta cuenta) {
         super("Retiros");
-        setContentPane(JPanel_Retiro);
         this.cuenta = cuenta;
+        setContentPane(JPanel_Retiro);
 
 
         Menu.addActionListener(new ActionListener() {
@@ -46,6 +46,7 @@ public class Retiro extends JFrame {
             Double ValorRetirado=(ValorVisto - ValorRetiro);
             cuenta.setSaldo(ValorRetirado);
             JOptionPane.showMessageDialog(null, "Retiro exitoso.");
+            Ver_Saldo.getInstance().VerSaldo(); // Actualizar la ventana Ver_Saldo
         }else{
             JOptionPane.showMessageDialog(null, "No hay suficiente saldo.");
         }

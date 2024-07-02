@@ -10,6 +10,7 @@ public class Ver_Saldo extends JFrame {
     private JButton menuButton;
     private JPanel D_Saldo;
     private JTextField CampoVer;
+    private static Ver_Saldo instance; //Almacenar la instancia única
     private Cuenta cuenta;
 
     public Ver_Saldo(Cuenta cuenta) {
@@ -38,5 +39,7 @@ public class Ver_Saldo extends JFrame {
     }
 
     public void setCampoUser(String text) { CampoUser.setText(text);}
+
+    public static Ver_Saldo getInstance() {return instance;}
 
 }
